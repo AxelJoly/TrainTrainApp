@@ -1,11 +1,9 @@
+import { FavorisPage } from './../pages/favoris/favoris';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {DataProvider} from "../providers/data/data";
@@ -19,9 +17,8 @@ import {TrajetsPage} from "../pages/trajets/trajets";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
-    TrajetsPage
+    TrajetsPage,
+    FavorisPage
   ],
   imports: [
     BrowserModule,
@@ -33,9 +30,8 @@ import {TrajetsPage} from "../pages/trajets/trajets";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
-    TrajetsPage
+    TrajetsPage,
+    FavorisPage
   ],
   providers: [
     StatusBar,

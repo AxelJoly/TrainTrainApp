@@ -1,12 +1,9 @@
 import { CompleteTestService } from './../../providers/complete-test-service/complete-test-service';
 import {Component, ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {DataProvider} from "../../providers/data/data";
 import {SncfProvider} from "../../providers/sncf/sncf";
-import {GareModel} from "../../Entity/GareModel";
-import {Observable} from "rxjs/Observable";
 import {AutoCompleteComponent} from "ionic2-auto-complete";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 /**
  * Generated class for the TrajetsPage page.
  *

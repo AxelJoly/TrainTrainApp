@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Trajets</ion-title>
+    <ion-title>Recherche de trajets</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,14 +20,14 @@
       {{ item }}
     </ion-item>
   </ion-list> -->
+  <p class="center taille">Train Train App!</p>
   <form name="form" (ngSubmit)="showTravels(form)">
+      
+     
+      <ion-auto-complete class="center tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart' }" #departure></ion-auto-complete>
 
-       <ion-auto-complete [dataProvider]="completeTestService" [options]="{ placeholder : 'Depart' }" #departure></ion-auto-complete>
-
-        <ion-auto-complete [dataProvider]="completeTestService" [options]="{ placeholder : 'Arrivée' }" #arrival></ion-auto-complete>
-
-
-
-  <button ion-button type="submit">TchouTchou!</button>
+      <ion-auto-complete class="center tooop" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare d\\'arrivée' }" #arrival></ion-auto-complete>
+   <button ion-button type="submit">Ajouter aux favoris</button>
+  <button ion-button item-bottom type="submit">TchouTchou!</button>
   </form>
 </ion-content>
