@@ -13,12 +13,14 @@ import { AutoCompleteModule } from 'ionic2-auto-complete';
 import {  CompleteTestService } from '../providers/complete-test-service/complete-test-service';
 import {HttpModule} from "@angular/http";
 import {TrajetsPage} from "../pages/trajets/trajets";
+import { ResultsPage } from '../pages/results/results';
 
 @NgModule({
   declarations: [
     MyApp,
     TrajetsPage,
-    FavorisPage
+    FavorisPage,
+    ResultsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import {TrajetsPage} from "../pages/trajets/trajets";
   entryComponents: [
     MyApp,
     TrajetsPage,
-    FavorisPage
+    FavorisPage,
+    ResultsPage
   ],
   providers: [
     StatusBar,
@@ -42,6 +45,6 @@ import {TrajetsPage} from "../pages/trajets/trajets";
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
-  ]
+  ],
 })
 export class AppModule {}
