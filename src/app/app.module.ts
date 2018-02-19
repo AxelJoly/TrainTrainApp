@@ -1,30 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import {DataProvider} from "../providers/data/data";
+import {HttpClientModule} from "@angular/common/http";
+import {SncfProvider} from "../providers/sncf/sncf";
+import { AutoCompleteModule } from 'ionic2-auto-complete';
+import {  CompleteTestService } from '../providers/complete-test-service/complete-test-service';
+import {HttpModule} from "@angular/http";
+import {TrajetsPage} from "../pages/trajets/trajets";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ListPage,
+    TrajetsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    AutoCompleteModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ListPage,
+    TrajetsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    DataProvider,
+    SncfProvider,
+    CompleteTestService,
+
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+
   ]
 })
 export class AppModule {}

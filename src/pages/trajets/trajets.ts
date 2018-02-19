@@ -1,7 +1,7 @@
 import { CompleteTestService } from './../../providers/complete-test-service/complete-test-service';
 import {Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {DataService} from "../../Services/DataService";
+import {DataProvider} from "../../providers/data/data";
 import {SncfProvider} from "../../providers/sncf/sncf";
 import {GareModel} from "../../Entity/GareModel";
 import {Observable} from "rxjs/Observable";
@@ -30,7 +30,7 @@ export class TrajetsPage {
   public travels: any;
   public message: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public completeTestService: CompleteTestService, public data: DataService, private sncfProvider: SncfProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public completeTestService: CompleteTestService, public data: DataProvider, private sncfProvider: SncfProvider) {
 
   }
 
