@@ -13,6 +13,8 @@ import { AutoCompleteModule } from 'ionic2-auto-complete';
 import {  CompleteTestService } from '../providers/complete-test-service/complete-test-service';
 import {HttpModule} from "@angular/http";
 import {TrajetsPage} from "../pages/trajets/trajets";
+import {SqliteService} from "../providers/sqlite/SqliteService";
+import {SQLite} from "@ionic-native/sqlite";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {TrajetsPage} from "../pages/trajets/trajets";
     DataProvider,
     SncfProvider,
     CompleteTestService,
+    SqliteService,
+    SQLite,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 

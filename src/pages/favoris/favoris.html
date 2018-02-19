@@ -15,14 +15,14 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <ion-list *ngFor="let favoris of journeys">
     <ion-item>
       <div item-start class="little">
-        <img src="../assets/imgs/star.jpg">
+        <img src="assets/imgs/star.jpg">
       </div>
-      <h2>De: Sanary</h2>
-      <h2>A: Toulon</h2>
-      <button ion-button item-bottom icon-left><ion-icon name="trash"></ion-icon>Supprimer</button>
+      <h2>De: {{favoris.gare_depart.name}}</h2>
+      <h2>A: {{favoris.gare_arrivee.name}}</h2>
+      <button ion-button  (click)="delete(favoris.id)" item-bottom icon-left><ion-icon name="trash"></ion-icon>Supprimer</button>
       <button ion-button item-bottom icon-left><ion-icon name="train"></ion-icon>Rechercher</button>
     </ion-item>
   </ion-list>
