@@ -5,6 +5,7 @@ import {DataProvider} from "../../providers/data/data";
 import {SncfProvider} from "../../providers/sncf/sncf";
 import {AutoCompleteComponent} from "ionic2-auto-complete";
 import {SqliteService} from "../../providers/sqlite/SqliteService";
+import { ResultsPage } from '../results/results';
 /**
  * Generated class for the TrajetsPage page.
  *
@@ -38,6 +39,7 @@ export class TrajetsPage {
     this.arrival.getSelection().stop_lon + ";" +
     this.arrival.getSelection().stop_lat);
   this.getTravels();
+  
   }
 
   public getTravels(){
@@ -47,6 +49,7 @@ export class TrajetsPage {
                                this.arrival.getSelection().stop_lat).subscribe(val =>
       {
         this.travels = val;
+        this.navCtrl.push(ResultsPage, {firstPassed: this.travels});
       },
       error => {
         this.message = error.message;
@@ -54,12 +57,5 @@ export class TrajetsPage {
       () => console.log(this.travels)
     );
   }
-  public favoris(){
-
-    if((this.departure.getSelection()!=null)&&(this.arrival.getSelection()!=null)){
-
-      this.sqliteService.createJourney(this.departure.getSelection(),this.arrival.getSelection());
-    }
-
-  }
 }
+

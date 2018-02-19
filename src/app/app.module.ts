@@ -15,12 +15,14 @@ import {HttpModule} from "@angular/http";
 import {TrajetsPage} from "../pages/trajets/trajets";
 import {SqliteService} from "../providers/sqlite/SqliteService";
 import {SQLite} from "@ionic-native/sqlite";
+import { ResultsPage } from '../pages/results/results';
 
 @NgModule({
   declarations: [
     MyApp,
     TrajetsPage,
-    FavorisPage
+    FavorisPage,
+    ResultsPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import {SQLite} from "@ionic-native/sqlite";
   entryComponents: [
     MyApp,
     TrajetsPage,
-    FavorisPage
+    FavorisPage,
+    ResultsPage
   ],
   providers: [
     StatusBar,
@@ -46,6 +49,6 @@ import {SQLite} from "@ionic-native/sqlite";
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
-  ]
+  ],
 })
 export class AppModule {}
