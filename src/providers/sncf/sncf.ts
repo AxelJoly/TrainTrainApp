@@ -28,7 +28,7 @@ export class SncfProvider {
       })}
 
     );
-    // result.catch(this.handleError)
+    // results.catch(this.handleError)
     console.log(result + '+ null');
     return result;
   }

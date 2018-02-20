@@ -1,9 +1,9 @@
+import { DetailsPage } from './../pages/details/details';
 import { FavorisPage } from './../pages/favoris/favoris';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ResultsPage } from '../pages/results/results';
 import {TrajetsPage} from "../pages/trajets/trajets";
 
 @Component({
@@ -23,7 +23,8 @@ export class MyApp {
     this.pages = [
       { title: 'Recherche Trajet', component: TrajetsPage},
       { title: 'Favoris', component: FavorisPage},
-      { title: 'Results', component: ResultsPage}
+      { title: 'Details', component: DetailsPage}
+
     ];
 
   }

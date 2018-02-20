@@ -6,7 +6,6 @@ import {SncfProvider} from "../../providers/sncf/sncf";
 import {AutoCompleteComponent} from "ionic2-auto-complete";
 import {SqliteService} from "../../providers/sqlite/SqliteService";
 import { ResultsPage } from '../results/results';
-import {GareModel} from "../../entity/GareModel";
 /**
  * Generated class for the TrajetsPage page.
  *

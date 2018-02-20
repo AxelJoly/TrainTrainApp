@@ -1,3 +1,4 @@
+import { DetailsPage } from './../pages/details/details';
 import { FavorisPage } from './../pages/favoris/favoris';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -16,27 +17,33 @@ import {TrajetsPage} from "../pages/trajets/trajets";
 import {SqliteService} from "../providers/sqlite/SqliteService";
 import {SQLite} from "@ionic-native/sqlite";
 import { ResultsPage } from '../pages/results/results';
+import {ProgressBarModule} from "angular-progress-bar";
+
+
 
 @NgModule({
   declarations: [
     MyApp,
     TrajetsPage,
     FavorisPage,
-    ResultsPage
+    ResultsPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     AutoCompleteModule,
-    HttpModule
+    HttpModule,
+    ProgressBarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     TrajetsPage,
     FavorisPage,
-    ResultsPage
+    ResultsPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
