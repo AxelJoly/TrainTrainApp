@@ -111,13 +111,14 @@ export class TrajetsPage {
           let stations = this.stations;
           console.log("mes stations");
           console.log(stations);
-          return stations;
+          this.navCtrl.push(GeolocalisationPage, {closestStations: stations});
+          //return stations;
         },
         error => {
         console.log(error)
           return null;
         },
-        () => console.log(this.closestStations)
+        //() => console.log(this.closestStations)
 
       );
 

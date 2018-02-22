@@ -17,10 +17,10 @@ import {Observable} from "rxjs/Observable";
 })
 export class GeolocalisationPage {
 
-  public closestStations: Observable<GareModel[]>;
+  public closestStations;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.navParams.get('closestStations')
+    this.closestStations = this.navParams.get("closestStations");
 
 
     console.log(this.closestStations);
@@ -36,6 +36,10 @@ export class GeolocalisationPage {
     let closestStations =
     console.log(this.navParams.get("closestStations"));
     console.log(closestStations);
+  }
+
+  hack(val) {
+    return Array.from(val);
   }
 
 
