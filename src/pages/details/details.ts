@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {GareModel} from "../../entity/GareModel";
+import {DataProvider} from "../../providers/data/data";
 
 /**
  * Generated class for the DetailsPage page.
@@ -14,11 +16,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailsPage');
   }
+
 
 }

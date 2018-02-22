@@ -21,9 +21,12 @@
     </ion-item>
   </ion-list> -->
   <p class="center" id="logo">Train Train App!</p>
+
+    <button ion-button (click)="closestStation()">Geoloc</button>
+
   <form name="form" (ngSubmit)="showTravels(form)">
-      
-     
+
+
       <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart' }" #departure></ion-auto-complete>
 
       <ion-auto-complete id="tooop"  [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare d\\'arrivée' }" #arrival></ion-auto-complete>

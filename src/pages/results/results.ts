@@ -40,12 +40,12 @@ export class ResultsPage {
     return Array.from(val);
   }
   timeDisplayDeparture(string) {
-    var day: String;
-    var month: String;
-    var year: String;
-    var hour: String;
-    var minutes: String;
-    var res: String;
+    let day: String;
+    let month: String;
+    let year: String;
+    let hour: String;
+    let minutes: String;
+    let res: String;
 
     year = string.slice(0, 4);
     month = string.slice(4, 6);
@@ -58,12 +58,12 @@ export class ResultsPage {
     return res;
   }
   timeDisplayArrival(string) {
-    var day: String;
-    var month: String;
-    var year: String;
-    var hour: String;
-    var minutes: String;
-    var res: String;
+    let day: String;
+    let month: String;
+    let year: String;
+    let hour: String;
+    let minutes: String;
+    let res: String;
 
     year = string.slice(0, 4);
     month = string.slice(4, 6);
@@ -76,10 +76,10 @@ export class ResultsPage {
     return res;
   }
   dateDisplay(string) {
-    var day: String;
-    var month: String;
-    var year: String;
-    var res: String;
+    let day: String;
+    let month: String;
+    let year: String;
+    let res: String;
 
     year = string.slice(0, 4);
     month = string.slice(4, 6);
@@ -91,10 +91,10 @@ export class ResultsPage {
   }
 
   durationDisplay(departure, arrival) {
-    var hourDeparture: number;
-    var minutesDeparture: number;
-    var hourArrival: number;
-    var minutesArrival: number;
+    let hourDeparture: number;
+    let minutesDeparture: number;
+    let hourArrival: number;
+    let minutesArrival: number;
 
     hourDeparture = parseInt(departure.slice(9, 11));
     minutesDeparture = parseInt(departure.slice(11, 13));
@@ -175,9 +175,9 @@ export class ResultsPage {
   }
 
   TimeDisplay(string) {
-    var hour: String;
-    var minutes: String;
-    var res: String;
+    let hour: String;
+    let minutes: String;
+    let res: String;
 
     hour = string.slice(9, 11);
     minutes = string.slice(11, 13);
@@ -188,7 +188,7 @@ export class ResultsPage {
   }
 
   startPoint(string){
-    for(var i = 0; i<string.length; i++){
+    for(let i = 0; i<string.length; i++){
       if(string[i].display_informations != null){
         return (this.TimeDisplay(string[i].base_departure_date_time)+ " - " + string[i].from.name);
       }
@@ -196,7 +196,7 @@ export class ResultsPage {
   }
 
   stopPoint(string){
-    for(var i = string.length-1; i>=0; i--){
+    for(let i = string.length-1; i>=0; i--){
       if(string[i].display_informations != null){
         return (this.TimeDisplay(string[i].base_arrival_date_time)+ " - " + string[i].to.name);
       }
@@ -204,8 +204,8 @@ export class ResultsPage {
   }
 
   changeCounter(string){
-    var counter = 0;
-    for(var i = 0; i<string.length; i++){
+    let counter = 0;
+    for(let i = 0; i<string.length; i++){
       if(string[i].display_informations != null){
         counter++;
       }

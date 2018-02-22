@@ -18,6 +18,8 @@ import {SqliteService} from "../providers/sqlite/SqliteService";
 import {SQLite} from "@ionic-native/sqlite";
 import { ResultsPage } from '../pages/results/results';
 import {ProgressBarModule} from "angular-progress-bar";
+import { Geolocation } from '@ionic-native/geolocation';
+import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
 
 
 
@@ -27,7 +29,8 @@ import {ProgressBarModule} from "angular-progress-bar";
     TrajetsPage,
     FavorisPage,
     ResultsPage,
-    DetailsPage
+    DetailsPage,
+    GeolocalisationPage,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import {ProgressBarModule} from "angular-progress-bar";
     TrajetsPage,
     FavorisPage,
     ResultsPage,
-    DetailsPage
+    DetailsPage,
+    GeolocalisationPage
   ],
   providers: [
     StatusBar,
@@ -53,6 +57,7 @@ import {ProgressBarModule} from "angular-progress-bar";
     CompleteTestService,
     SqliteService,
     SQLite,
+    Geolocation,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
