@@ -6,20 +6,12 @@ page-add {
     margin-right: auto;
     margin-left: auto;
   }
-  ion-content::before{
-    content: ' ';
-    position: absolute;
-    margin-top: 30px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 1;
+  ion-content{
+
     background-image: url('../assets/imgs/GareFlou.jpg');
-    background-size: 100% 100%;
+    background-size:cover;
+    -webkit-background-size:cover;
     background-repeat: no-repeat;
-    background-position: center center;
   }
   #cardAC {
     margin-top: 50px;

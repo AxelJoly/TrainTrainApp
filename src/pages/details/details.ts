@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {GareModel} from "../../entity/GareModel";
-import {DataProvider} from "../../providers/data/data";
+
 
 /**
  * Generated class for the DetailsPage page.
