@@ -103,7 +103,7 @@ export class SqliteService {
 
 
 
-              this.journey = new JourneyModel(val.rows.item(i).id,new GareModel(val.rows.item(i).id_depart,val.rows.item(i).name_depart,val.rows.item(i).latitude_depart,val.rows.item(i).longitude_depart),new GareModel(val.rows.item(i).id_arrivee,val.rows.item(i).name_arrivee,val.rows.item(i).latitude_arrivee,val.rows.item(i).longitude_arrivee));
+              this.journey = new JourneyModel(val.rows.item(i).id,new GareModel(val.rows.item(i).id_depart,val.rows.item(i).name_depart,val.rows.item(i).latitude_depart,val.rows.item(i).longitude_depart,0),new GareModel(val.rows.item(i).id_arrivee,val.rows.item(i).name_arrivee,val.rows.item(i).latitude_arrivee,val.rows.item(i).longitude_arrivee,0));
               this.journeys.push(this.journey);
 
 

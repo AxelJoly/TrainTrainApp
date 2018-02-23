@@ -20,6 +20,7 @@ import { ResultsPage } from '../pages/results/results';
 import {ProgressBarModule} from "angular-progress-bar";
 import { Geolocation } from '@ionic-native/geolocation';
 import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
+import { SharedProvider } from '../providers/shared/shared';
 import {AddPage} from "../pages/add/add";
 import {ShowPage} from "../pages/show/show";
 
@@ -65,8 +66,10 @@ import {ShowPage} from "../pages/show/show";
     SqliteService,
     SQLite,
     Geolocation,
+    SharedProvider,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SharedProvider,
 
   ],
 })

@@ -27,8 +27,8 @@
   <form name="form" (ngSubmit)="showTravels(form)">
 
 
-      <ion-auto-complete [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart' }" #departure></ion-auto-complete>
-
+    <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" [keyword]="default.name" *ngIf="default" #departure></ion-auto-complete>
+    <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" *ngIf="!default" #departure></ion-auto-complete>
       <ion-auto-complete id="tooop"  [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare d\\'arrivée' }" #arrival></ion-auto-complete>
 
   <button ion-button item-bottom class="but" type="submit">TchouTchou!</button>

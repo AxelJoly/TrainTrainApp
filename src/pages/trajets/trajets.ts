@@ -1,5 +1,5 @@
 import { CompleteTestService } from './../../providers/complete-test-service/complete-test-service';
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {DataProvider} from "../../providers/data/data";
 import {SncfProvider} from "../../providers/sncf/sncf";
@@ -9,6 +9,7 @@ import { ResultsPage } from '../results/results';
 import {GareModel} from "../../entity/GareModel";
 import {GeolocalisationPage} from "../geolocalisation/geolocalisation";
 import { Geolocation } from '@ionic-native/geolocation';
+import {SharedProvider} from "../../providers/shared/shared";
 /**
  * Generated class for the TrajetsPage page.
  *
@@ -22,7 +23,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 
 
-export class TrajetsPage {
+export class TrajetsPage implements OnInit{
 
   @ViewChild('departure')
   departure: AutoCompleteComponent;
@@ -33,6 +34,7 @@ export class TrajetsPage {
   public message: string;
   public stations;
   public closestStations: GareModel[];
+  public default: GareModel;
 
 
   constructor(public navCtrl: NavController,
@@ -41,25 +43,59 @@ export class TrajetsPage {
               public data: DataProvider,
               private sncfProvider: SncfProvider,
               public sqliteService: SqliteService,
-              private geolocation: Geolocation) {
+              private geolocation: Geolocation,
+              public share: SharedProvider) {
+
 
   }
 
   public showTravels(form){
-  console.log(this.departure.getSelection().stop_lon + ";" +
+    if(this.default != null) {
+      this.getTravelsAutoCompleted();
+    }else{
+      this.getTravels();
+    }
+    console.log(this.departure.getSelection().stop_lon + ";" +
     this.departure.getSelection().stop_lat + " " +
     this.arrival.getSelection().stop_lon + ";" +
     this.arrival.getSelection().stop_lat);
-  this.getTravels();
+
 
   }
 
-  public getTravels(){
-    this.sncfProvider.getRepos(this.departure.getSelection().stop_lon,
-                               this.departure.getSelection().stop_lat,
-                               this.arrival.getSelection().stop_lon,
-                               this.arrival.getSelection().stop_lat).subscribe(val =>
-      {
+  ngOnInit(){
+    console.log(this.share.station);
+    this.default = this.share.station;
+  }
+
+  ionViewDidEnter() {
+    console.log("ionview");
+    this.default = this.share.station;
+    console.log(this.default);
+  }
+
+  public getTravels() {
+
+      this.sncfProvider.getRepos(this.departure.getSelection().stop_lon,
+                                 this.departure.getSelection().stop_lat,
+                                 this.arrival.getSelection().stop_lon,
+                                 this.arrival.getSelection().stop_lat).subscribe(val => {
+          this.travels = val;
+          this.navCtrl.push(ResultsPage, {firstPassed: this.travels});
+        },
+        error => {
+          this.message = error.message;
+        },
+        () => console.log(this.travels)
+      );
+    }
+
+  public getTravelsAutoCompleted() {
+
+    this.sncfProvider.getRepos(this.default.stop_lon,
+      this.default.stop_lat,
+      this.arrival.getSelection().stop_lon,
+      this.arrival.getSelection().stop_lat).subscribe(val => {
         this.travels = val;
         this.navCtrl.push(ResultsPage, {firstPassed: this.travels});
       },
@@ -103,9 +139,19 @@ export class TrajetsPage {
             let d = R * c;
 
             if (d < 10) {
-              this.stations[index] = this.closestStations[i];
-              console.log('value of index ' + i + ': ' + d + 'arret:' + this.stations[index].name);
-              index++;
+              let inside = false;
+              for(let j = 0; j< this.stations.length; j++){
+                if(this.stations[j].name == this.closestStations[i].name){
+                  inside = true;
+                }
+              }
+              if(inside == false){
+                this.stations[index] = this.closestStations[i];
+                this.stations[index].distance = d;
+                console.log('value of index ' + i + ': ' + d + 'arret:' + this.stations[index].name);
+                index++;
+              }
+
             }
           }
           let stations = this.stations;
@@ -143,5 +189,6 @@ export class TrajetsPage {
     console.log(stations)
     this.navCtrl.push(GeolocalisationPage, {closestStations: stations});
   }
+
 }
 

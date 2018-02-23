@@ -7,7 +7,7 @@ import { of } from 'rxjs/Observable/of';
 @Injectable()
 export class CompleteTestService implements AutoCompleteService {
   labelAttribute = "name";
-
+  selected;
   constructor(private http: Http) {
 
   }
@@ -20,22 +20,22 @@ export class CompleteTestService implements AutoCompleteService {
 
           console.log("IIIIINCLUUUUUS");
           if (keyword.length >=11) {
-            
+
             return this.http.get("assets/json/stations.json")
             .map(
               result =>
               {
                 console.log(result.json()
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase())));
-    
+
                 return result.json()
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
               }
-    
+
             );
           }else {
             return of({});
-          }  
+          }
         }
         else {
           return this.http.get("assets/json/stations.json")
@@ -49,7 +49,7 @@ export class CompleteTestService implements AutoCompleteService {
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
               }
 
-            ); 
+            );
         }
       }else {
         return of({});
@@ -58,4 +58,10 @@ export class CompleteTestService implements AutoCompleteService {
       return of({});
     }
   }
+
+
+  setSelected(selected){
+    this.selected = selected;
+  }
+
 }

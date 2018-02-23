@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {GareModel} from "../../entity/GareModel";
+import {Observable} from "rxjs/Observable";
+import {TrajetsPage} from "../trajets/trajets";
+import {SharedProvider} from "../../providers/shared/shared";
 import { NavController, NavParams } from 'ionic-angular';
 
 
@@ -16,11 +21,11 @@ import { NavController, NavParams } from 'ionic-angular';
 export class GeolocalisationPage {
 
   public closestStations;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  public callback;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public share: SharedProvider) {
 
     this.closestStations = this.navParams.get("closestStations");
-
-
     console.log(this.closestStations);
   }
 
@@ -31,9 +36,17 @@ export class GeolocalisationPage {
   }
 
   public show(){
-    let closestStations =
-    console.log(this.navParams.get("closestStations"));
-    console.log(closestStations);
+
+    console.log(this.closestStations);
+
+  }
+
+  public goHome(selectedStation){
+
+    console.log("geoloc"+selectedStation);
+    this.share.station = selectedStation;
+    this.navCtrl.pop();
+
   }
 
   hack(val) {
