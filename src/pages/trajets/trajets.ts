@@ -92,8 +92,8 @@ export class TrajetsPage implements OnInit{
 
   public getTravelsAutoCompleted() {
 
-    this.sncfProvider.getRepos(this.default.stop_lon,
-      this.default.stop_lat,
+    this.sncfProvider.getRepos(String(this.default.stop_lon),
+      String(this.default.stop_lat),
       this.arrival.getSelection().stop_lon,
       this.arrival.getSelection().stop_lat).subscribe(val => {
         this.travels = val;

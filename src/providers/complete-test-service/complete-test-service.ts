@@ -25,11 +25,30 @@ export class CompleteTestService implements AutoCompleteService {
             .map(
               result =>
               {
-                console.log(result.json()
-                  .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase())));
 
-                return result.json()
+
+
+                let stations = [];
+                let index = 0;
+                let filteredStations = result.json()
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
+
+                for (let i = 0; i < filteredStations.length; i++) {
+
+                  let inside = false;
+                  for(let j = 0; j< stations.length; j++){
+                    if(stations[j].name == filteredStations[i].name){
+                      inside = true;
+                    }
+                  }
+                  if(inside == false){
+                    stations[index] = filteredStations[i];
+
+                    index++;
+                  }
+
+                }
+                return stations;
               }
 
             );
@@ -42,11 +61,25 @@ export class CompleteTestService implements AutoCompleteService {
             .map(
               result =>
               {
-                console.log(result.json()
-                  .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase())));
-
-                return result.json()
+                let stations = [];
+                let index = 0;
+                let filteredStations = result.json()
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
+
+                for (let i = 0; i < filteredStations.length; i++) {
+
+                  let inside = false;
+                  for(let j = 0; j< stations.length; j++){
+                    if(stations[j].name == filteredStations[i].name){
+                      inside = true;
+                    }
+                  }
+                  if(inside == false){
+                    stations[index] = filteredStations[i];
+                    index++;
+                  }
+                }
+                return stations;
               }
 
             );

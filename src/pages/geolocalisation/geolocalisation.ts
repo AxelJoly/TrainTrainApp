@@ -4,7 +4,7 @@ import {GareModel} from "../../entity/GareModel";
 import {Observable} from "rxjs/Observable";
 import {TrajetsPage} from "../trajets/trajets";
 import {SharedProvider} from "../../providers/shared/shared";
-import { NavController, NavParams } from 'ionic-angular';
+
 
 
 /**
