@@ -7,7 +7,7 @@ import { of } from 'rxjs/Observable/of';
 @Injectable()
 export class CompleteTestService implements AutoCompleteService {
   labelAttribute = "name";
-
+  selected;
   constructor(private http: Http) {
 
   }
@@ -20,36 +20,69 @@ export class CompleteTestService implements AutoCompleteService {
 
           console.log("IIIIINCLUUUUUS");
           if (keyword.length >=11) {
-            
+
             return this.http.get("assets/json/stations.json")
             .map(
               result =>
               {
-                console.log(result.json()
-                  .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase())));
-    
-                return result.json()
+
+
+
+                let stations = [];
+                let index = 0;
+                let filteredStations = result.json()
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
+
+                for (let i = 0; i < filteredStations.length; i++) {
+
+                  let inside = false;
+                  for(let j = 0; j< stations.length; j++){
+                    if(stations[j].name == filteredStations[i].name){
+                      inside = true;
+                    }
+                  }
+                  if(inside == false){
+                    stations[index] = filteredStations[i];
+
+                    index++;
+                  }
+
+                }
+                return stations;
               }
-    
+
             );
           }else {
             return of({});
-          }  
+          }
         }
         else {
           return this.http.get("assets/json/stations.json")
             .map(
               result =>
               {
-                console.log(result.json()
-                  .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase())));
-
-                return result.json()
+                let stations = [];
+                let index = 0;
+                let filteredStations = result.json()
                   .filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
+
+                for (let i = 0; i < filteredStations.length; i++) {
+
+                  let inside = false;
+                  for(let j = 0; j< stations.length; j++){
+                    if(stations[j].name == filteredStations[i].name){
+                      inside = true;
+                    }
+                  }
+                  if(inside == false){
+                    stations[index] = filteredStations[i];
+                    index++;
+                  }
+                }
+                return stations;
               }
 
-            ); 
+            );
         }
       }else {
         return of({});
@@ -58,4 +91,10 @@ export class CompleteTestService implements AutoCompleteService {
       return of({});
     }
   }
+
+
+  setSelected(selected){
+    this.selected = selected;
+  }
+
 }

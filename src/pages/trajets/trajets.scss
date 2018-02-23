@@ -2,11 +2,12 @@ page-trajets {
     @import "../../../node_modules/ionic2-auto-complete/auto-complete";
 
     ion-content{
-
-      background-image: url('../assets/imgs/GareFlou.jpg');
-      -webkit-background-size:cover;
-      background-repeat: no-repeat;
-
+        
+        background-image: url('../assets/imgs/GareFlou.jpg');
+        background-size:cover;
+        -webkit-background-size:cover;
+        background-repeat: no-repeat;
+       
     }
     #logo {
         font-size: 3.0rem;
@@ -20,6 +21,9 @@ page-trajets {
         margin-top: 30px;
     }
 
+    #topRch {
+        margin-top: 15px;
+    }
 
     #txt {
       font-size: 1.6rem;

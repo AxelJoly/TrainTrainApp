@@ -15,11 +15,9 @@
 
 <ion-content padding>
   <ion-list >
-    <ion-item *ngFor="let station of closestStations">
-      <label>{{station.name}}</label>
+    <ion-item *ngFor="let station of closestStations" (click)='goHome(station)'>
+      <label>{{ station.name }}</label>
+      <label>{{ station.distance.toFixed(2)}} Km</label>
     </ion-item>
   </ion-list>
-  <ion-item>
-    <button ion-button (click)="show()">Reload</button>
-  </ion-item>
 </ion-content>

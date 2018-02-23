@@ -24,11 +24,11 @@
 
   <a id="txt" (click)="distance()">(Rechercher des stations autour de soit <ion-icon name="pin" item-start></ion-icon> )</a>
 
-  <form name="form" (ngSubmit)="showTravels(form)">
+  <form name="form" (ngSubmit)="showTravels(form)" id="topRch">
 
 
-      <ion-auto-complete [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart' }" #departure></ion-auto-complete>
-
+    <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" [keyword]="default.name" *ngIf="default" #departure></ion-auto-complete>
+    <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" *ngIf="!default" #departure></ion-auto-complete>
       <ion-auto-complete id="tooop"  [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare d\\'arrivée' }" #arrival></ion-auto-complete>
 
   <button ion-button item-bottom class="but" type="submit">TchouTchou!</button>

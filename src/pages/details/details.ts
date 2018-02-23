@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import {AlertController, NavController, NavParams} from 'ionic-angular';
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {SMS} from "@ionic-native/sms";
 import {SqliteService} from "../../providers/sqlite/SqliteService";
 import {ContactModel} from "../../entity/ContactModel";
 import {DatePipe} from "@angular/common";
+
 
 /**
  * Generated class for the DetailsPage page.

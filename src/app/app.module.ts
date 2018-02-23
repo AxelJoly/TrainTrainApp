@@ -20,6 +20,7 @@ import { ResultsPage } from '../pages/results/results';
 import {ProgressBarModule} from "angular-progress-bar";
 import { Geolocation } from '@ionic-native/geolocation';
 import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
+import { SharedProvider } from '../providers/shared/shared';
 import {AddPage} from "../pages/add/add";
 import {ShowPage} from "../pages/show/show";
 import {SMS} from "@ionic-native/sms";
@@ -68,12 +69,14 @@ import {DatePipe} from "@angular/common";
     SqliteService,
     SQLite,
     Geolocation,
+    SharedProvider,
     SMS,
     SocialSharing,
     DatePipe,
 
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SharedProvider,
 
   ],
 })
