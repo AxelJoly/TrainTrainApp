@@ -224,6 +224,7 @@ export class ResultsPage {
 
 
   public detail(journey){
+    console.log(journey[0].arrival_date_time);
     this.navCtrl.push(DetailsPage, {
       journey: journey
     });

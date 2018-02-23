@@ -22,6 +22,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
 import {AddPage} from "../pages/add/add";
 import {ShowPage} from "../pages/show/show";
+import {SMS} from "@ionic-native/sms";
+import {SocialSharing} from "@ionic-native/social-sharing";
+import {DatePipe} from "@angular/common";
 
 
 
@@ -65,6 +68,10 @@ import {ShowPage} from "../pages/show/show";
     SqliteService,
     SQLite,
     Geolocation,
+    SMS,
+    SocialSharing,
+    DatePipe,
+
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
