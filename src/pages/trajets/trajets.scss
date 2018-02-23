@@ -18,16 +18,22 @@ page-trajets {
     #logo {
         font-size: 3.0rem;
         margin-top: 20px;
+        margin-bottom: 40px;
     }
 
-    #but {
+    .but {
         display: block;
         margin : auto;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
-    #tooop2 {
-        margin-top: 50px;
+
+    #txt {
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 1.2;
+
+      color: black;
     }
 
     #tooop {

@@ -2,7 +2,7 @@ import { DetailsPage } from './../pages/details/details';
 import { FavorisPage } from './../pages/favoris/favoris';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {IonicApp, IonicErrorHandler, IonicModule, IonicPageModule} from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,6 +20,8 @@ import { ResultsPage } from '../pages/results/results';
 import {ProgressBarModule} from "angular-progress-bar";
 import { Geolocation } from '@ionic-native/geolocation';
 import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
+import {AddPage} from "../pages/add/add";
+import {ShowPage} from "../pages/show/show";
 
 
 
@@ -31,6 +33,8 @@ import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
     ResultsPage,
     DetailsPage,
     GeolocalisationPage,
+    AddPage,
+    ShowPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,8 @@ import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
     IonicModule.forRoot(MyApp),
     AutoCompleteModule,
     HttpModule,
-    ProgressBarModule
+    ProgressBarModule,
+    IonicPageModule.forChild(GeolocalisationPage),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,7 +52,9 @@ import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
     FavorisPage,
     ResultsPage,
     DetailsPage,
-    GeolocalisationPage
+    GeolocalisationPage,
+    AddPage,
+    ShowPage
   ],
   providers: [
     StatusBar,

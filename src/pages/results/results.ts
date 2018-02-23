@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {DetailsPage} from "../details/details";
 
 /**
  * Generated class for the ResultsPage page.
@@ -219,5 +220,12 @@ export class ResultsPage {
     } else {
       return "trajet direct";
     }
+  }
+
+
+  public detail(journey){
+    this.navCtrl.push(DetailsPage, {
+      journey: journey
+    });
   }
 }

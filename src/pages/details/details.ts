@@ -16,8 +16,11 @@ import {DataProvider} from "../../providers/data/data";
 })
 export class DetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider) {
+  journey: any
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
+    this.journey = navParams.get('journey') ;
+    console.log(this.journey);
   }
 
   ionViewDidLoad() {

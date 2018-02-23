@@ -1,10 +1,11 @@
-import { DetailsPage } from './../pages/details/details';
 import { FavorisPage } from './../pages/favoris/favoris';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {TrajetsPage} from "../pages/trajets/trajets";
+import {AddPage} from "../pages/add/add";
+import {ShowPage} from "../pages/show/show";
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,8 @@ export class MyApp {
     this.pages = [
       { title: 'Recherche Trajet', component: TrajetsPage},
       { title: 'Favoris', component: FavorisPage},
-      { title: 'Details', component: DetailsPage}
+      { title: 'Ajout contact', component: AddPage},
+      { title: 'Recherche Contact', component: ShowPage},
 
     ];
 

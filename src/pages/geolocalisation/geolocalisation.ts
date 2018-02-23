@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {GareModel} from "../../entity/GareModel";
-import {Observable} from "rxjs/Observable";
+import { NavController, NavParams } from 'ionic-angular';
+
 
 /**
  * Generated class for the GeolocalisationPage page.
@@ -10,7 +9,6 @@ import {Observable} from "rxjs/Observable";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-geolocalisation',
   templateUrl: 'geolocalisation.html',
