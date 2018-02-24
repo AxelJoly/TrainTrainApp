@@ -17,7 +17,7 @@ import {TrajetsPage} from "../pages/trajets/trajets";
 import {SqliteService} from "../providers/sqlite/SqliteService";
 import {SQLite} from "@ionic-native/sqlite";
 import { ResultsPage } from '../pages/results/results';
-import {ProgressBarModule} from "angular-progress-bar";
+//import {ProgressBarModule} from "angular-progress-bar";
 import { Geolocation } from '@ionic-native/geolocation';
 import {GeolocalisationPage} from "../pages/geolocalisation/geolocalisation";
 import { SharedProvider } from '../providers/shared/shared';
@@ -26,7 +26,7 @@ import {ShowPage} from "../pages/show/show";
 import {SMS} from "@ionic-native/sms";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {DatePipe} from "@angular/common";
-
+import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import {DatePipe} from "@angular/common";
     DetailsPage,
     GeolocalisationPage,
     AddPage,
-    ShowPage
+    ShowPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +47,6 @@ import {DatePipe} from "@angular/common";
     IonicModule.forRoot(MyApp),
     AutoCompleteModule,
     HttpModule,
-    ProgressBarModule,
     IonicPageModule.forChild(GeolocalisationPage),
   ],
   bootstrap: [IonicApp],

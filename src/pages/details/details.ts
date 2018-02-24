@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 import {AlertController, NavController, NavParams} from 'ionic-angular';
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {SMS} from "@ionic-native/sms";

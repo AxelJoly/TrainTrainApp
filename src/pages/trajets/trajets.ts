@@ -1,6 +1,6 @@
 import { CompleteTestService } from './../../providers/complete-test-service/complete-test-service';
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {AlertController, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {DataProvider} from "../../providers/data/data";
 import {SncfProvider} from "../../providers/sncf/sncf";
 import {AutoCompleteComponent} from "ionic2-auto-complete";
@@ -44,22 +44,45 @@ export class TrajetsPage implements OnInit{
               private sncfProvider: SncfProvider,
               public sqliteService: SqliteService,
               private geolocation: Geolocation,
-              public share: SharedProvider) {
+              public share: SharedProvider,
+              public loadingCtrl: LoadingController,
+              public alertCtrl: AlertController) {
 
 
   }
 
   public showTravels(form){
-    if(this.default != null) {
-      this.getTravelsAutoCompleted();
-    }else{
-      this.getTravels();
-    }
-    console.log(this.departure.getSelection().stop_lon + ";" +
-    this.departure.getSelection().stop_lat + " " +
-    this.arrival.getSelection().stop_lon + ";" +
-    this.arrival.getSelection().stop_lat);
 
+    if(this.arrival.getSelection() == null){
+
+      let alert = this.alertCtrl.create({
+        title: 'Pas si vite!',
+        subTitle: 'Tu as oublié de remplir des champs! 😀',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+
+    }else{
+
+      if(this.departure.getSelection() == null ){
+        if(this.default != null) {
+          this.getTravelsAutoCompleted();
+
+
+        }else{
+          let alert = this.alertCtrl.create({
+            title: 'Pas si vite!',
+            subTitle: 'Tu as oublié de remplir des champs! 😀',
+            buttons: ['Dismiss']
+          });
+          alert.present();
+
+        }
+
+      }else{
+        this.getTravels();
+      }
+    }
 
   }
 
@@ -75,35 +98,61 @@ export class TrajetsPage implements OnInit{
   }
 
   public getTravels() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      content: 'Recherche de nos meilleurs trains...',
 
+    });
+
+
+    loading.present().then(() => {
       this.sncfProvider.getRepos(this.departure.getSelection().stop_lon,
-                                 this.departure.getSelection().stop_lat,
-                                 this.arrival.getSelection().stop_lon,
-                                 this.arrival.getSelection().stop_lat).subscribe(val => {
+        this.departure.getSelection().stop_lat,
+        this.arrival.getSelection().stop_lon,
+        this.arrival.getSelection().stop_lat).subscribe(val => {
+
           this.travels = val;
+
           this.navCtrl.push(ResultsPage, {firstPassed: this.travels});
         },
         error => {
           this.message = error.message;
         },
-        () => console.log(this.travels)
+        () => loading.dismiss()
+
       );
     }
 
-  public getTravelsAutoCompleted() {
+    );
 
+    }
+
+  public getTravelsAutoCompleted() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      content: 'Recherche de nos meilleurs trains...',
+
+    });
+
+
+    loading.present().then(() => {
     this.sncfProvider.getRepos(String(this.default.stop_lon),
       String(this.default.stop_lat),
       this.arrival.getSelection().stop_lon,
       this.arrival.getSelection().stop_lat).subscribe(val => {
         this.travels = val;
+
         this.navCtrl.push(ResultsPage, {firstPassed: this.travels});
       },
       error => {
         this.message = error.message;
       },
-      () => console.log(this.travels)
+      () => loading.dismiss()
     );
+      }
+
+    );
+
   }
 
   public favoris(){
@@ -111,12 +160,20 @@ export class TrajetsPage implements OnInit{
   }
 
   public distance(): any {
-    this.geolocation.getCurrentPosition().then((resp) => {
+    let loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      content: 'Geolocalisation en cours...',
+
+    });
+
+
+    loading.present().then(() => {this.geolocation.getCurrentPosition().then((resp) => {
+
       let lat = resp.coords.latitude
       let lng = resp.coords.longitude
       console.log(lat + ";" + lng)
       this.data.getData().subscribe(val => {
-        this.closestStations = val
+          this.closestStations = val
           this.stations = [];
           let index = 0;
           let lat1 = lat;
@@ -161,16 +218,21 @@ export class TrajetsPage implements OnInit{
           //return stations;
         },
         error => {
-        console.log(error)
+          console.log(error)
+          loading.dismiss();
           return null;
         },
         //() => console.log(this.closestStations)
 
       );
+      loading.dismiss();
+    });
+
 
 
     }).catch((error) => {
       console.log('Error getting location', error);
+      loading.dismiss();
       return null;
 
     });
@@ -190,5 +252,19 @@ export class TrajetsPage implements OnInit{
     this.navCtrl.push(GeolocalisationPage, {closestStations: stations});
   }
 
+  /*presentLoadingDots() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      content: 'Geolocalisation en cours...',
+
+    });
+
+    loading.present();
+    this.distance()
+
+    setTimeout(() => {
+      loading.dismiss();
+    }, 4000);
+  }*/
 }
 
