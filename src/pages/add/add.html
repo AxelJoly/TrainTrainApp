@@ -1,9 +1,7 @@
 <ion-header>
+
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Ajout contact</ion-title>
+    <ion-title>Contacts</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,27 +9,20 @@
 
 <ion-content>
 
-  <ion-card id="cardAC">
-
-  <form *ngIf="form" [formGroup]="form" >
-
-    <ion-list>
-
-      <ion-item>
-        <ion-label floating>Nom du contact</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
-      </ion-item>
+  <ion-card *ngFor="let item of contacteu ">
 
 
-      <ion-item>
-        <ion-label floating>Numéro de téléphone</ion-label>
-        <ion-input type="number" formControlName="phone"></ion-input>
-      </ion-item>
-      <ion-item>
-    <button ion-button full id="but" type="submit" (click)="done()">Ajouter contact</button>
-      </ion-item>
-    </ion-list>
-  </form>
+
+    <h1>{{item.name}}</h1>
+
+
+    <ion-card-content *ngFor="let entry of item.phone">
+      <p>{{entry}}</p>
+      <button ion-button full id="but" type="submit" (click)="done(item.name,entry)">Ajouter contact</button>
+    </ion-card-content>
+
+
   </ion-card>
+
 
 </ion-content>

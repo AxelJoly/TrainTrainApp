@@ -27,6 +27,7 @@ import {SMS} from "@ionic-native/sms";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {DatePipe} from "@angular/common";
 import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
+import { Contacts} from "@ionic-native/contacts";
 
 
 @NgModule({
@@ -73,6 +74,8 @@ import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
     SMS,
     SocialSharing,
     DatePipe,
+    Contacts,
+
 
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},

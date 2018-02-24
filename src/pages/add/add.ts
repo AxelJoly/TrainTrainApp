@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {AlertController, NavController, ViewController} from "ionic-angular";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-
-import {ContactModel} from "../../Entity/ContactModel";
+import { Contacts} from "@ionic-native/contacts";
+import {ContactModel} from "../../entity/ContactModel";
+import {ContactShowModel} from "../../entity/ContactShowModel";
 import {SqliteService} from "../../providers/sqlite/SqliteService";
 import {ShowPage} from "../show/show";
 /**
@@ -18,65 +18,51 @@ import {ShowPage} from "../show/show";
 })
 export class AddPage implements OnInit {
 
-  form: FormGroup;
-  urlImg: String;
-  contact: ContactModel;
+  contacteu: ContactShowModel[] = [];
 
 
-  @ViewChild('fileInput') fileInput;
 
-  isReadyToSave: boolean;
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, private alertCtrl: AlertController, private contacts: Contacts,public sqliteService:SqliteService) {
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, private alertCtrl: AlertController, public sqliteService: SqliteService) {
 
-    this.form = formBuilder.group({
-
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-    });
-    this.urlImg = '';
-    // this.user = new User('assets/imgs/affiche.png','Max');
-    // this.card = new RepoModel(this.user,'','','','','',0,0);
-    // Watch the form for changes, and
-    this.form.valueChanges.subscribe((v) => {
-      this.isReadyToSave = this.form.valid;
-    });
 
   }
 
   ngOnInit() {
+
+    this.contacts.find(['displayName', 'name', 'phoneNumbers', 'emails'],{filter: "", multiple: true}).then(val=>{
+
+      for(let entry of val){
+        let contact = new ContactShowModel('',[]);
+
+        if(entry.phoneNumbers){
+          console.log(entry.displayName);
+          contact.name = entry.displayName;
+          for(let phone of entry.phoneNumbers){
+            console.log(phone.value);
+            contact.phone.push(phone.value);
+          }
+          this.contacteu.push(contact);
+        }
+
+      }
+    });
   }
 
-  /**
-   * The user cancelled, so we dismiss without sending data back.
-   */
-  cancel() {
-    this.viewCtrl.dismiss();
+
+  done(name,phone) {
+
+    console.log(name);
+    this.sqliteService.createContact(name, phone);
+    let alert = this.alertCtrl.create({
+      title: 'Nouveau contact!',
+      message: 'Contact '+ name+' bien ajouté!',
+      buttons: [ {
+        text: 'OK',
+        handler: data => {
+          this.navCtrl.setRoot(ShowPage, {}, {animate:true, direction: 'forward'});          }
+      }]
+    });
+    alert.present();
   }
-
-  /**
-   * The user is done and wants to create the item, so return it
-   * back to the presenter.
-   */
-  done() {
-    if (!this.form.valid) {
-      return;
-    } else {
-      console.log(this.form.value.name);
-      this.sqliteService.createContact(this.form.value.name, this.form.value.phone);
-      let alert = this.alertCtrl.create({
-        title: 'Nouveau contact!',
-        message: 'Contact '+ this.form.value.name+' bien ajouté!',
-        buttons: [ {
-          text: 'OK',
-          handler: data => {
-            this.navCtrl.setRoot(ShowPage, {}, {animate:true, direction: 'forward'});          }
-        }]
-      });
-      alert.present();
-
-    }
-
-  }
-
 }
