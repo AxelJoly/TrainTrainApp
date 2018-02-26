@@ -20,17 +20,14 @@
 
 
   <ion-list >
-       <ion-item *ngFor="let param of hack(params.journeys)" (click)="detail(param.sections)">
+       <ion-item *ngFor="let param of hack(params.journeys)" (click)="detail(param.sections, param)">
         <div *ngIf="param.sections[0].mode=='walking'">
           <h2><ion-icon name="subway"></ion-icon>  |  Date : {{dateDisplay(param.departure_date_time)}} | Durée : {{durationDisplay(param.departure_date_time,param.arrival_date_time)}}</h2>
-          <!-- <h2>{{timeDisplayDeparture(param.sections[1].departure_date_time)}} {{timeDisplayArrival(param.sections[1].arrival_date_time)}}</h2> -->
-          <!-- <h2>{{journeyComputation(pama.sections)}}</h2> -->
+          
           <h2>{{startPoint(param.sections)}}</h2>
-          <!-- <h2>De: {{param.sections[1].from.name}}</h2> -->
-
+          
           <h2><ion-icon name="arrow-round-down"></ion-icon>  |  {{changeCounter(param.sections)}}</h2>
           <h2>{{stopPoint(param.sections)}}</h2>
-          <!-- <h2>A: {{param.sections[1].to.name}}</h2> -->
        </div>
         </ion-item>
   </ion-list>

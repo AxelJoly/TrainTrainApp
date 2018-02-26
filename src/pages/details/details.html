@@ -15,40 +15,30 @@
 
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header>
-          Travels infos
-        </ion-card-header>
+  <ion-card>
+    <ion-card-header>
+      Travels infos
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <h2>
+          <ion-icon name="subway"></ion-icon> | Date : {{dateDisplay(journeys.departure_date_time)}} | Durée : {{durationDisplay(journeys.departure_date_time,journeys.arrival_date_time)}}</h2>
+        <h2>Temps avant départ : {{timeLeft(journeys.arrival_date_time)}}</h2>
+        <h2>{{changeCounter(sections)}}</h2>
+      </ion-item>
+      <ion-item *ngFor="let section of sections">
+        <div>
+          <h2>Départ depuis {{section.from.stop_point.name}}</h2>
+          <h2>Arrivée à {{section.to.stop_point.name}}</h2>
+          <h2>Temps du trajet {{durationMinutes(section.duration)}} min</h2>
+        </div>
 
-        <ion-list>
-          <ion-item name="title">
-            <ion-icon name="pin" item-start></ion-icon>
-           De: Sanary
-          </ion-item>
+      </ion-item>
+      <ion-item>
+        <button ion-button full item-bottom icon-left (click)="share()">
+          <ion-icon name="share-alt"></ion-icon>Partager</button>
+      </ion-item>
 
-          <ion-item name="title">
-            <ion-icon name="pin" item-start></ion-icon>
-           A: Toulon
-          </ion-item>
-
-
-          <ion-item name="title">
-            <ion-icon name="train" item-start></ion-icon>
-            By: Train
-          </ion-item>
-
-          <ion-item>
-            <ion-icon name="refresh" item-start></ion-icon>
-            Progression:
-          </ion-item>
-          <ion-item>
-            <progress-bar [progress]="30">
-              </progress-bar>
-          </ion-item>
-          <ion-item>
-          <button ion-button full item-bottom icon-left (click)="share()"><ion-icon name="share-alt" ></ion-icon>Partager</button>
-          </ion-item>
-
-        </ion-list>
-      </ion-card>
+    </ion-list>
+  </ion-card>
 </ion-content>

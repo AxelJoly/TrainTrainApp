@@ -40,6 +40,7 @@ export class ResultsPage {
   hack(val) {
     return Array.from(val);
   }
+
   timeDisplayDeparture(string) {
     let day: String;
     let month: String;
@@ -109,15 +110,15 @@ export class ResultsPage {
         if (hourArrival + 23 - hourDeparture < 10) {
 
           if (minutesArrival + 60 - minutesDeparture < 10) {
-            return ("0" + (hourArrival + 23 - hourDeparture) + ":0" + (minutesArrival + 60 - minutesDeparture));
+            return ("0" + (hourArrival + 23 - hourDeparture) + "h0" + (minutesArrival + 60 - minutesDeparture));
           } else {
-            return ("0" + (hourArrival + 23 - hourDeparture) + ":" + (minutesArrival + 60 - minutesDeparture));
+            return ("0" + (hourArrival + 23 - hourDeparture) + "h" + (minutesArrival + 60 - minutesDeparture));
           }
         } else {
           if (minutesArrival + 60 - minutesDeparture < 10) {
-            return ((hourArrival + 23 - hourDeparture) + ":0" + (minutesArrival + 60 - minutesDeparture));
+            return ((hourArrival + 23 - hourDeparture) + "h0" + (minutesArrival + 60 - minutesDeparture));
           } else {
-            return ((hourArrival + 23 - hourDeparture) + ":" + (minutesArrival + 60 - minutesDeparture));
+            return ((hourArrival + 23 - hourDeparture) + "h" + (minutesArrival + 60 - minutesDeparture));
           }
         }
 
@@ -125,15 +126,15 @@ export class ResultsPage {
         if (hourArrival + 24 - hourDeparture < 10) {
 
           if (minutesArrival - minutesDeparture < 10) {
-            return ("0" + (hourArrival + 24 - hourDeparture) + ":0" + (minutesArrival - minutesDeparture));
+            return ("0" + (hourArrival + 24 - hourDeparture) + "h0" + (minutesArrival - minutesDeparture));
           } else {
-            return ("0" + (hourArrival + 24 - hourDeparture) + ":" + (minutesArrival - minutesDeparture));
+            return ("0" + (hourArrival + 24 - hourDeparture) + "h" + (minutesArrival - minutesDeparture));
           }
         } else {
           if (minutesArrival + 60 - minutesDeparture < 10) {
-            return ((hourArrival + 24 - hourDeparture) + ":0" + (minutesArrival - minutesDeparture));
+            return ((hourArrival + 24 - hourDeparture) + "h0" + (minutesArrival - minutesDeparture));
           } else {
-            return ((hourArrival + 24 - hourDeparture) + ":" + (minutesArrival - minutesDeparture));
+            return ((hourArrival + 24 - hourDeparture) + "h" + (minutesArrival - minutesDeparture));
           }
         }
         //return ((hourArrival+24-hourDeparture)+":"+(minutesArrival-minutesDeparture));
@@ -144,15 +145,15 @@ export class ResultsPage {
         if (hourArrival - 1 - hourDeparture < 10) {
 
           if (minutesArrival + 60 - minutesDeparture < 10) {
-            return ("0" + (hourArrival - 1 - hourDeparture) + ":0" + (minutesArrival + 60 - minutesDeparture));
+            return ("0" + (hourArrival - 1 - hourDeparture) + "h0" + (minutesArrival + 60 - minutesDeparture));
           } else {
-            return ("0" + (hourArrival - 1 - hourDeparture) + ":" + (minutesArrival + 60 - minutesDeparture));
+            return ("0" + (hourArrival - 1 - hourDeparture) + "h" + (minutesArrival + 60 - minutesDeparture));
           }
         } else {
           if (minutesArrival + 60 - minutesDeparture < 10) {
-            return ((hourArrival - 1 - hourDeparture) + ":0" + (minutesArrival + 60 - minutesDeparture));
+            return ((hourArrival - 1 - hourDeparture) + "h0" + (minutesArrival + 60 - minutesDeparture));
           } else {
-            return ((hourArrival - 1 - hourDeparture) + ":" + (minutesArrival + 60 - minutesDeparture));
+            return ((hourArrival - 1 - hourDeparture) + "h" + (minutesArrival + 60 - minutesDeparture));
           }
         }
 
@@ -160,15 +161,15 @@ export class ResultsPage {
         if (hourArrival - hourDeparture < 10) {
 
           if (minutesArrival - minutesDeparture < 10) {
-            return ("0" + (hourArrival - hourDeparture) + ":0" + (minutesArrival - minutesDeparture));
+            return ("0" + (hourArrival - hourDeparture) + "h0" + (minutesArrival - minutesDeparture));
           } else {
-            return ("0" + (hourArrival - hourDeparture) + ":" + (minutesArrival - minutesDeparture));
+            return ("0" + (hourArrival - hourDeparture) + "h" + (minutesArrival - minutesDeparture));
           }
         } else {
           if (minutesArrival + 60 - minutesDeparture < 10) {
-            return ((hourArrival - hourDeparture) + ":0" + (minutesArrival - minutesDeparture));
+            return ((hourArrival - hourDeparture) + "h0" + (minutesArrival - minutesDeparture));
           } else {
-            return ((hourArrival - hourDeparture) + ":" + (minutesArrival - minutesDeparture));
+            return ((hourArrival - hourDeparture) + "h" + (minutesArrival - minutesDeparture));
           }
         }
       }
@@ -223,10 +224,11 @@ export class ResultsPage {
   }
 
 
-  public detail(journey){
-    console.log(journey[0].arrival_date_time);
+  public detail(journey, journeys){
+    //console.log(journey[0].arrival_date_time);
     this.navCtrl.push(DetailsPage, {
-      journey: journey
+      journey: journey,
+      journeys: journeys
     });
   }
 }
