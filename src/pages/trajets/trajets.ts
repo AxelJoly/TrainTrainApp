@@ -95,6 +95,7 @@ export class TrajetsPage implements OnInit{
     console.log("ionview");
     this.default = this.share.station;
     console.log(this.default);
+
   }
 
   public getTravels() {
@@ -156,7 +157,14 @@ export class TrajetsPage implements OnInit{
   }
 
   public favoris(){
-    this.sqliteService.createJourney(this.departure.getSelection(),this.arrival.getSelection());
+
+    if(this.default && this.arrival.getSelection()){
+      this.sqliteService.createJourney(this.default,this.arrival.getSelection());
+    }
+    else if(this.arrival.getSelection() && this.departure.getSelection()){
+      this.sqliteService.createJourney(this.departure.getSelection(),this.arrival.getSelection());
+    }
+
   }
 
   public distance(): any {

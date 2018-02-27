@@ -23,7 +23,7 @@
       <h2>De: {{favoris.gare_depart.name}}</h2>
       <h2>A: {{favoris.gare_arrivee.name}}</h2>
       <button ion-button  (click)="delete(favoris.id)" item-bottom icon-left><ion-icon name="trash"></ion-icon>Supprimer</button>
-      <button ion-button item-bottom icon-left><ion-icon name="train"></ion-icon>Rechercher</button>
+      <button ion-button item-bottom icon-left (click)="search(favoris)"><ion-icon name="train"></ion-icon>Rechercher</button>
     </ion-item>
   </ion-list>
 </ion-content>
