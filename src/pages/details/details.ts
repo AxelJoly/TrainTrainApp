@@ -31,9 +31,19 @@ export class DetailsPage {
     Array.from(this.journey = navParams.get("journey"));
     this.journeys = navParams.get("journeys");
     this.sections = this.OnlyChange(Array.from(navParams.get("journey")));
-    console.log(this.journey);
-    console.log(this.journeys);
-    console.log(this.sections);
+
+    for(let entry of this.sections){
+      console.log("entry sections= "+entry.from.stop_point.name);
+      console.log("entry sections= "+this.TimeDisplay(entry.departure_date_time));
+      console.log("entry sections= "+this.TimeDisplay(entry.arrival_date_time));
+      console.log("entry sections= "+entry.to.stop_point.name);
+      console.log("entry sections= "+entry.duration);
+    }
+    console.log("journey= "+this.journey);
+    console.log("journeys= "+this.TimeDisplay(this.journeys.departure_date_time));
+
+    console.log("journeys= "+this.TimeDisplay(this.journeys.arrival_date_time));
+    console.log("section = "+this.sections);
 
     this.date=new Date();
   }
@@ -41,6 +51,22 @@ export class DetailsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailsPage');
     this.getContact();
+    this.saveVoyage();
+
+  }
+
+  public saveVoyage(){
+    this.sqliteService.getDataBaseChangements();
+    this.sqliteService.getData2.subscribe(()=>{
+      this.sqliteService.getChangments().subscribe(val=>{
+        for(let entry of val){
+          this.sqliteService.deleteChangements(entry.id);
+        }
+        this.sqliteService.createChangements(this.sections);
+      });
+
+    });
+
 
   }
   public getContact(){
@@ -55,7 +81,7 @@ export class DetailsPage {
       }
     });
   }
-  
+
   OnlyChange(string){
 
     for(let i=0; i<string.length; i++){

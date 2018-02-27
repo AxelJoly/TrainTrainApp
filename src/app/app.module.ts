@@ -28,6 +28,7 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 import {DatePipe} from "@angular/common";
 import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
 import { Contacts} from "@ionic-native/contacts";
+import {MonVoyagePage} from "../pages/monVoyage/monVoyage";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { Contacts} from "@ionic-native/contacts";
     GeolocalisationPage,
     AddPage,
     ShowPage,
+    MonVoyagePage,
     ProgressBarComponent
   ],
   imports: [
@@ -59,7 +61,8 @@ import { Contacts} from "@ionic-native/contacts";
     DetailsPage,
     GeolocalisationPage,
     AddPage,
-    ShowPage
+    ShowPage,
+    MonVoyagePage
   ],
   providers: [
     StatusBar,

@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {TrajetsPage} from "../pages/trajets/trajets";
 import {AddPage} from "../pages/add/add";
 import {ShowPage} from "../pages/show/show";
+import {MonVoyagePage} from "../pages/monVoyage/monVoyage";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +27,7 @@ export class MyApp {
       { title: 'Favoris', component: FavorisPage},
       { title: 'Ajout contact', component: AddPage},
       { title: 'Recherche Contact', component: ShowPage},
+      { title: 'Mon Voyage', component: MonVoyagePage},
 
     ];
 
