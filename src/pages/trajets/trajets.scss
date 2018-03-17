@@ -3,23 +3,34 @@ page-trajets {
 
     ion-content{
         
-        background-image: url('../assets/imgs/GareFlou.jpg');
+        background-image: url('../assets/imgs/trainflou.jpg');
         background-size:cover;
         -webkit-background-size:cover;
         background-repeat: no-repeat;
-       
     }
+
     #logo {
-        font-size: 3.0rem;
-        margin-top: 20px;
-        margin-bottom: 40px;
+        font-size: 3.4rem;
+        margin-top: 40px;
+        margin-bottom: 90px;
     }
 
     .but {
+        width: 180px;
         display: block;
         margin : auto;
-        margin-top: 30px;
+        margin-top: 10px;
+        background-color: #3F51B5;
     }
+
+    #butTT {
+        display: block;
+        margin : auto;
+        margin-top: 10px;
+        background-color: #3F51B5;
+        width: 145 px;
+    }
+
 
     #topRch {
         margin-top: 15px;
@@ -34,11 +45,17 @@ page-trajets {
     }
 
     #tooop {
-        margin-top: 120px;
+        margin-top: 0px;
     }
 
     .center {
-        text-align: center;
-        color: white;
+      text-align: center;
+      color:black;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: bold;
     }
+
+
+   // --------------------SEARCH BAR CHANGEMENTS -------------------
+
 }

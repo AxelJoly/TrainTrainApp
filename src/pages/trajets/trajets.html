@@ -20,18 +20,19 @@
       {{ item }}
     </ion-item>
   </ion-list> -->
-  <p class="center" id="logo">Train Train App!</p>
-
-  <a id="txt" (click)="distance()">(Rechercher des stations autour de soit <ion-icon name="pin" item-start></ion-icon> )</a>
+  <div class="contain">
+    
+  <p class="center" id="logo">Train Train App</p>
 
   <form name="form" (ngSubmit)="showTravels(form)" id="topRch">
 
+    <ion-auto-complete [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" [keyword]="default.name" *ngIf="default" #departure></ion-auto-complete>
+    <ion-auto-complete [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" *ngIf="!default" #departure></ion-auto-complete>
+    <ion-auto-complete id="tooop"  [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare d\\'arrivée' }" #arrival></ion-auto-complete>
 
-    <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" [keyword]="default.name" *ngIf="default" #departure></ion-auto-complete>
-    <ion-auto-complete id="tooop2" [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare de depart'}" *ngIf="!default" #departure></ion-auto-complete>
-      <ion-auto-complete id="tooop"  [dataProvider]="completeTestService" [options]="{ placeholder : 'Saisissez une gare d\\'arrivée' }" #arrival></ion-auto-complete>
-
-  <button ion-button item-bottom class="but" type="submit">TchouTchou!</button>
+  <button ion-button item-bottom class="but" type="submit">TCHOUTCHOU !</button>
   </form>
-  <button ion-button item-bottom class="but" (click)="favoris()">Ajouter aux favoris</button>
+  <button ion-button item-bottom class="but" (click)="distance()">GEOLOCALISATION</button>
+  <button ion-button item-bottom class="but" (click)="favoris()">AJOUTER AUX FAVORIS</button>
+</div>
 </ion-content>
