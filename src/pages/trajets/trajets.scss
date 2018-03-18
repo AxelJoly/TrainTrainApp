@@ -12,23 +12,23 @@ page-trajets {
     #logo {
         font-size: 3.4rem;
         margin-top: 40px;
-        margin-bottom: 90px;
+        margin-bottom: 50px;
     }
 
     .but {
         width: 180px;
+        height: 36px;
         display: block;
         margin : auto;
         margin-top: 10px;
+        font-size: 1.4rem;
         background-color: #3F51B5;
     }
 
     #butTT {
-        display: block;
-        margin : auto;
-        margin-top: 10px;
-        background-color: #3F51B5;
-        width: 145 px;
+       
+        margin-top: 55px;
+        
     }
 
 
@@ -45,7 +45,8 @@ page-trajets {
     }
 
     #tooop {
-        margin-top: 0px;
+        margin-top: 45px;
+        margin-bottom: 10px;
     }
 
     .center {
@@ -56,6 +57,80 @@ page-trajets {
     }
 
 
-   // --------------------SEARCH BAR CHANGEMENTS -------------------
+    // --------------------CARD-------------------
+    // ANDROID
+    .card-md {
+        background-color: rgba(255,255,255,0.8);
+    }
+    // IOS
+    .card-ios {
+        background-color: rgba(255,255,255,0.8);
+
+    }
+    
+   // --------------------SEARCH BAR CHANGEMENTS-------------------
+
+   // ANDROID
+   .searchbar-md .searchbar-input {
+    padding-left: 0px;
+    padding-right: 40px;
+    background-color: transparent;
+    width: 80%;
+    border-bottom: 1px solid #3F51B5;
+    -webkit-box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0);
+
+
+    }
+    // Petite loupe
+    .searchbar-md .searchbar-search-icon {
+        display: none;
+    }
+    // Petite croix
+    .searchbar-md .searchbar-clear-icon {
+        right: 80px;
+    }
+
+    // IOS
+    // Petite loupe
+    .searchbar-ios .searchbar-search-icon {
+        display: none;
+    }
+    .searchbar-ios {
+        background: none;
+    }
+
+    .searchbar-ios .searchbar-input {
+        border-radius: 2px;
+        background-color: transparent;
+
+    }
+
+    .searchbar-input {
+        width: 80%;
+
+    }
+    .searchbar-ios.searchbar-left-aligned .searchbar-input {
+        padding-left: 0px;
+        height: 45px;
+        border-bottom: 1px solid #3F51B5;
+    }
+    // Petite croix
+    .searchbar-clear-icon {
+        padding-right: 165px;
+    }
+
+    .searchbar-ios .searchbar-input {
+        padding: 0 35px;
+        font-size: 1.6rem;
+    }
+
+    .searchbar-ios {
+        border-top: none;
+        border-bottom: none;
+    }
+
+
+    
 
 }
