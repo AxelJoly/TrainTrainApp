@@ -1,18 +1,49 @@
 page-trajets {
     @import "../../../node_modules/ionic2-auto-complete/auto-complete";
+    // -----ANDROID------
+    // BOUTTON SIDE MENU
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #FFFFFF;
+    }
+    // TOOLBAR
+    .toolbar-title-md {
+        color: #FFFFFF;
+    }
 
+    // IOS 
+    // BOUTTON SIDE MENU
+    .toolbar-title-ios {
+        color: #FFFFFF;
+    }
+    // BOUTTON SIDE MENU
+    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+        color: #FFFFFF;
+    }
+
+    // BACKGROUND HEADER
+    .toolbar-background {
+        background-color: #3F51B5;
+      }
+    // BACKGROUND
     ion-content{
-        
+        margin-top: 44px;
         background-image: url('../assets/imgs/trainflou.jpg');
         background-size:cover;
         -webkit-background-size:cover;
         background-repeat: no-repeat;
     }
-
+    // AUTRE CSS
     #logo {
-        font-size: 3.4rem;
-        margin-top: 40px;
+        font-size: 3.6rem;
+        margin-top: 5px;
         margin-bottom: 50px;
+    }
+
+    .scroll-content {
+        margin-top: 20px !important;
+    }
+    .fixed-content {
+        margin-top: 20px !important;
     }
 
     .but {
@@ -52,7 +83,7 @@ page-trajets {
     .center {
       text-align: center;
       color:black;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
     }
 
