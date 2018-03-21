@@ -41,6 +41,8 @@ export class AddPage implements OnInit {
             console.log(phone.value);
             contact.phone.push(phone.value);
           }
+          //contact.phone.push(entry.phoneNumbers[0].value);
+            
           this.contacteu.push(contact);
         }
 

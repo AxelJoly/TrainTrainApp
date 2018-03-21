@@ -101,14 +101,14 @@ export class DetailsPage {
           text: 'Messenger',
 
           handler: () => {
-            this.sharing.shareVia("com.facebook.orca",'Mon train part à  ' +this.TimeDisplay(this.journey[0].departure_date_time));
+            this.sharing.shareVia("com.facebook.orca",'Mon train part à ' +this.TimeDisplay(this.journey[0].departure_date_time));
           }
         },
         {
           text: 'Sms',
           handler: () => {
             for(let entry of this.contacts){
-              this.sms.send(entry.phoneNumber , 'Mon train part à  ' +this.TimeDisplay(this.journey[0].departure_date_time));
+              this.sms.send(entry.phoneNumber , 'Mon train part à ' +this.TimeDisplay(this.journey[0].departure_date_time));
             }
           }
         }
@@ -246,7 +246,7 @@ export class DetailsPage {
         return ((counter-1)+" changement");
       }
     } else {
-      return "trajet direct";
+      return "Trajet direct";
     }
   }
 
