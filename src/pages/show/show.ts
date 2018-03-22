@@ -44,9 +44,7 @@ export class ShowPage implements OnInit {
       console.log("get contacteuuuuuuu");
 
       this.contacts = val;
-      for(let entry of this.contacts){
-        console.log("looooooooooooooooooooooooooooooooooooooooooooooooooool");
-      }
+      
     });
   }
 

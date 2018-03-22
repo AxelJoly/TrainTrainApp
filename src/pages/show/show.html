@@ -9,12 +9,7 @@
 
 <ion-content padding>
   <ion-list >
-      <ion-item>
-        
-          <p style="color:black;">Axel Joly</p>
-          <p style="color:black;">Numéro de télephone: 0666666666</p>
-          <button ion-button ion-button clear item-end ><img src="assets/imgs/DeletePetite.png"></button>
-        </ion-item>
+      
     <ion-item *ngFor="let contact of contacts">
         
       <p style="color:black;">{{contact.name}}</p>

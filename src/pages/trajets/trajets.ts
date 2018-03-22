@@ -1,3 +1,4 @@
+import { FavorisPage } from './../favoris/favoris';
 import { CompleteTestService } from './../../providers/complete-test-service/complete-test-service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AlertController, LoadingController, NavController, NavParams} from 'ionic-angular';
@@ -160,9 +161,34 @@ export class TrajetsPage implements OnInit{
 
     if(this.default && this.arrival.getSelection()){
       this.sqliteService.createJourney(this.default,this.arrival.getSelection());
+      let alert = this.alertCtrl.create({
+        title: 'Favoris',
+        subTitle: 'Trajet favoris ajouté!',
+        buttons: [{
+          text: 'Ok',
+          handler: () => {
+            this.navCtrl.push(FavorisPage);
+          }
+        }]
+      });
+      alert.present();      
     }
     else if(this.arrival.getSelection() && this.departure.getSelection()){
       this.sqliteService.createJourney(this.departure.getSelection(),this.arrival.getSelection());
+
+
+      let alert = this.alertCtrl.create({
+        title: 'Favoris',
+        subTitle: 'Trajet favoris ajouté!',
+        buttons: [{
+          text: 'Ok',
+          handler: () => {
+            this.navCtrl.push(FavorisPage);
+          }
+        }]
+      });
+      alert.present();                       
+     
     }
 
   }
