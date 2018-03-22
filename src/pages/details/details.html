@@ -1,36 +1,26 @@
-<!--
-  Generated template for the DetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Détails</ion-title>
+    <ion-title>Details trajet</ion-title>
   </ion-navbar>
 </ion-header>
-
 
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      Travels infos
+      Détails du trajet
     </ion-card-header>
     <ion-list>
       <ion-item>
         <h2>
           <ion-icon name="subway"></ion-icon> | Date : {{dateDisplay(journeys.departure_date_time)}} | Durée : {{durationDisplay(journeys.departure_date_time,journeys.arrival_date_time)}}</h2>
         <h2>Temps avant départ : {{timeLeft(journeys.arrival_date_time)}}</h2>
-        <h2>{{changeCounter(sections)}}</h2>
+        <h2><ion-icon name="arrow-round-down"></ion-icon> | {{changeCounter(sections)}}</h2>
       </ion-item>
       <ion-item *ngFor="let section of sections">
         <div>
-          <h2>Départ depuis {{section.from.stop_point.name}}</h2>
-          <h2>Arrivée à {{section.to.stop_point.name}}</h2>
-          <h2>Temps du trajet {{durationMinutes(section.duration)}} min</h2>
+          <h2>Départ depuis : {{section.from.stop_point.name}}</h2>
+          <h2>Arrivée à : {{section.to.stop_point.name}}</h2>
+          <h2>Temps du trajet : {{durationMinutes(section.duration)}} min</h2>
         </div>
 
       </ion-item>

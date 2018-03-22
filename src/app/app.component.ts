@@ -16,7 +16,7 @@ export class MyApp {
 
   rootPage: any = TrajetsPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string,icon: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();

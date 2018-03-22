@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {AlertController, NavController, ViewController} from "ionic-angular";
 import { Contacts} from "@ionic-native/contacts";
-import {ContactModel} from "../../entity/ContactModel";
 import {ContactShowModel} from "../../entity/ContactShowModel";
 import {SqliteService} from "../../providers/sqlite/SqliteService";
 import {ShowPage} from "../show/show";
@@ -42,6 +41,8 @@ export class AddPage implements OnInit {
             console.log(phone.value);
             contact.phone.push(phone.value);
           }
+          //contact.phone.push(entry.phoneNumbers[0].value);
+            
           this.contacteu.push(contact);
         }
 

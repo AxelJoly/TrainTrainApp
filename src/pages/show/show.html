@@ -3,12 +3,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Contacts</ion-title>
+    <ion-title>Recherche contacts</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let contact of contacts">
-    {{contact.name}}: {{contact.phoneNumber}}  <button ion-button secondary menuToggle  (click)="delete(contact.id)">delete</button>
+  <ion-list >
+      <ion-item>
+        
+          <p style="color:black;">Axel Joly</p>
+          <p style="color:black;">Numéro de télephone: 0666666666</p>
+          <button ion-button ion-button clear item-end ><img src="assets/imgs/DeletePetite.png"></button>
+        </ion-item>
+    <ion-item *ngFor="let contact of contacts">
+        
+      <p style="color:black;">{{contact.name}}</p>
+      <p style="color:black;" >Numéro de télephone: {{contact.phoneNumber}}</p>
+      <button ion-button ion-button clear item-end (click)="delete(contact.id)"><img src="assets/imgs/DeletePetite.png"></button>
+    </ion-item>
   </ion-list>
 </ion-content>

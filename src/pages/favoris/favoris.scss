@@ -1,8 +1,60 @@
 page-favoris {
-    .little {
-        width: 56px;
-        height: 56px;
-   min-width: 0px; 
-    min-height: 0px; 
+  // -----ANDROID------
+    // BOUTTON SIDE MENU
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #FFFFFF;
     }
+    // TOOLBAR
+    .toolbar-title-md {
+        color: #FFFFFF;
+    }
+
+    // IOS 
+    // BOUTTON SIDE MENU
+    .toolbar-title-ios {
+        color: #FFFFFF;
+    }
+    // BOUTTON SIDE MENU
+    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+        color: #FFFFFF;
+    }
+
+    // BACKGROUND HEADER
+    .toolbar-background {
+        background-color: #3F51B5;
+      }
+    .little {
+        width: 70px;
+        height: 70px;
+        min-width: 0px; 
+        min-height: 0px; 
+    }
+    ion-content:after{
+        
+        content : "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url('../assets/imgs/trainflou.jpg');
+        width: 100%;
+        height: 100%;
+        opacity : 0.4;
+    }
+    .but {
+        
+        background-color: #3F51B5;
+    }
+    .item-md {
+        background-color: transparent;
+        padding-left: 0px;
+        border-bottom:0.55px solid #c8c7cc;
+        border-top:0.55px solid #c8c7cc;
+    }
+    .item-ios{
+        background-color: transparent;
+        padding-left: 0px;
+
+    }
+
 }

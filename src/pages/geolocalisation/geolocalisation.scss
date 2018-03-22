@@ -1,3 +1,31 @@
 page-geolocalisation {
+    // -----ANDROID------
+    // BOUTTON SIDE MENU
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #FFFFFF;
+    }
+    // TOOLBAR
+    .toolbar-title-md {
+        color: #FFFFFF;
+    }
 
+    // IOS 
+    // BOUTTON SIDE MENU
+    .toolbar-title-ios {
+        color: #FFFFFF;
+    }
+    // BOUTTON SIDE MENU
+    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+        color: #FFFFFF;
+    }
+
+    // BACKGROUND HEADER
+    .toolbar-background {
+        background-color: #3F51B5;
+      }
+
+    .centerText {
+        text-align: center;
+        color: black;
+    }
 }

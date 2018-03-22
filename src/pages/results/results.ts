@@ -219,7 +219,7 @@ export class ResultsPage {
         return ((counter-1)+" changement");
       }
     } else {
-      return "trajet direct";
+      return "Trajet direct";
     }
   }
 

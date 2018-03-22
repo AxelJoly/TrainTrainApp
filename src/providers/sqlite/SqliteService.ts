@@ -47,38 +47,16 @@ export class SqliteService {
         db.executeSql('create table if not exists contact( id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(32),phoneNumber VARCHAR(32))', {})
           .then(() => console.log('Executed SQL'))
           .catch(e => console.log(e));
-
-
-
-
-
-
-
-
-
-
       })
       .catch(e => console.log(e));
-
-
-
-
   }
 
   getJourney(): Observable <JourneyModel []> {
-
-
-
-
 
     let result: Observable<JourneyModel[]> =  Observable.create(observer => {
       observer.next(this.journeys);
     });
     return result;
-
-
-
-
   }
 
   public getDataBaseJourney(){
@@ -91,32 +69,18 @@ export class SqliteService {
     })
       .then((db: SQLiteObject) => {
 
-
-
-
         db.executeSql('select * from journey', {})
           .then(val => {
             console.log('Executed SQL3');
 
             for(var i=0; i<val.rows.length; i++) {
-
-
-
-
               this.journey = new JourneyModel(val.rows.item(i).id,new GareModel(val.rows.item(i).id_depart,val.rows.item(i).name_depart,val.rows.item(i).latitude_depart,val.rows.item(i).longitude_depart,0),new GareModel(val.rows.item(i).id_arrivee,val.rows.item(i).name_arrivee,val.rows.item(i).latitude_arrivee,val.rows.item(i).longitude_arrivee,0));
               this.journeys.push(this.journey);
-
-
-
             }
 
             this.getDataObserver.next();
 
           }) ;
-
-
-
-
       })
       .catch(e => console.log(e));
 
@@ -140,9 +104,6 @@ export class SqliteService {
     })
       .then((db: SQLiteObject) => {
 
-
-
-
         db.executeSql('select * from contact', {})
           .then(val => {
             console.log('Executed SQL3');
@@ -151,8 +112,6 @@ export class SqliteService {
 
               this.contact = new ContactModel(val.rows.item(i).id,val.rows.item(i).name,val.rows.item(i).phoneNumber);
               this.contacts.push(this.contact);
-
-
 
             }
 
@@ -275,24 +234,11 @@ export class SqliteService {
       location: 'default'
     })
       .then((db: SQLiteObject) => {
-
-
-
-
         db.executeSql('insert into  contact(name,phoneNumber) VALUES(?,?)', [name,phoneNumber])
           .then(() => console.log('Executed SQL2'))
           .catch(e => console.log(e));
-
-
-
-
-
-
-
       })
       .catch(e => console.log(e));
-
-
 
   }
 

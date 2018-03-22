@@ -15,10 +15,10 @@
 
 
 <ion-content padding>
-  <ion-list *ngFor="let favoris of journeys">
-    <ion-item>
+  <ion-list>
+    <ion-item *ngFor="let favoris of journeys">
       <div item-start class="little">
-        <img src="assets/imgs/star.jpg">
+        <img src="assets/imgs/fav.png">
       </div>
       <h2>De: {{favoris.gare_depart.name}}</h2>
       <h2>A: {{favoris.gare_arrivee.name}}</h2>
