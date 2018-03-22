@@ -56,9 +56,13 @@ export class DetailsPage {
   }
 
   public saveVoyage(){
+    console.log('save voyage');
     this.sqliteService.getDataBaseChangements();
     this.sqliteService.getData2.subscribe(()=>{
+
+      console.log('getData2 lol')
       this.sqliteService.getChangments().subscribe(val=>{
+        console.log('get changement');
         for(let entry of val){
           this.sqliteService.deleteChangements(entry.id);
         }

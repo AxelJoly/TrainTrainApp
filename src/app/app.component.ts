@@ -16,7 +16,7 @@ export class MyApp {
 
   rootPage: any = TrajetsPage;
 
-  pages: Array<{title: string,icon: string, component: any}>;
+  pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -27,7 +27,7 @@ export class MyApp {
       { title: 'Favoris', component: FavorisPage},
       { title: 'Ajout contact', component: AddPage},
       { title: 'Recherche Contact', component: ShowPage},
-      { title: 'Mon Voyage', component: MonVoyagePage},
+
 
     ];
 

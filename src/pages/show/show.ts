@@ -22,6 +22,7 @@ export class ShowPage implements OnInit {
 
 
     });
+    console.log("show contact");
 
   }
   ngOnInit(){
@@ -40,10 +41,11 @@ export class ShowPage implements OnInit {
 
     this.sqliteService.getContact().subscribe(val=>{
 
+      console.log("get contacteuuuuuuu");
+
       this.contacts = val;
-      for(let entry of val){
-        console.log(entry.phoneNumber);
-        console.log(entry.name);
+      for(let entry of this.contacts){
+        console.log("looooooooooooooooooooooooooooooooooooooooooooooooooool");
       }
     });
   }

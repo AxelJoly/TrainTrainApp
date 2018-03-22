@@ -10,15 +10,15 @@
 
 <ion-content padding>
 
- 
+
       <ion-list>
-       
-        <ion-item *ngFor="let item of contacteu" (click)="done(item.name,entry)">
+
+        <ion-item *ngFor="let item of contacteu" (click)="done(item.name,item.phone[0])">
           <p style="color:black;">Nom: {{item.name}}</p>
           <p style="color:black;">Numéro de télephone: {{item.phone[0]}}</p>
-          
+
         </ion-item>
     </ion-list>
- 
+
 </ion-content>
 

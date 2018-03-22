@@ -37,12 +37,13 @@ export class AddPage implements OnInit {
         if(entry.phoneNumbers){
           console.log(entry.displayName);
           contact.name = entry.displayName;
+
           for(let phone of entry.phoneNumbers){
             console.log(phone.value);
             contact.phone.push(phone.value);
           }
           //contact.phone.push(entry.phoneNumbers[0].value);
-            
+
           this.contacteu.push(contact);
         }
 
