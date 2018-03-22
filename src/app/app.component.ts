@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {TrajetsPage} from "../pages/trajets/trajets";
 import {AddPage} from "../pages/add/add";
 import {ShowPage} from "../pages/show/show";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string,icon:string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private screenOrientation: ScreenOrientation) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -29,6 +31,26 @@ export class MyApp {
 
 
     ];
+
+    // get current
+  console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
+  if(this.platform.is('core') || this.platform.is('mobileweb')) {
+    console.log("Orientation Changed");
+  } else {
+    // set to landscape
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+  // allow user rotate
+  this.screenOrientation.unlock();
+
+  // detect orientation changes
+  this.screenOrientation.onChange().subscribe(
+    () => {
+        console.log("Orientation Changed");
+    }
+  );
+  }
+  
 
   }
 
@@ -46,6 +68,8 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  
 }
 
 

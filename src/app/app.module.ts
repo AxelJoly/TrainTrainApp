@@ -26,9 +26,10 @@ import {ShowPage} from "../pages/show/show";
 import {SMS} from "@ionic-native/sms";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {DatePipe} from "@angular/common";
-import {ProgressBarComponent} from "../components/progress-bar/progress-bar";
 import { Contacts} from "@ionic-native/contacts";
 import {MonVoyagePage} from "../pages/monVoyage/monVoyage";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 
 @NgModule({
@@ -42,7 +43,6 @@ import {MonVoyagePage} from "../pages/monVoyage/monVoyage";
     AddPage,
     ShowPage,
     MonVoyagePage,
-    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +76,7 @@ import {MonVoyagePage} from "../pages/monVoyage/monVoyage";
     SharedProvider,
     SMS,
     SocialSharing,
+    ScreenOrientation,
     DatePipe,
     Contacts,
 
